@@ -11,7 +11,7 @@ export const Header = () => {
       <Flex
         justifyContent="space-between"
         alignItems="center"
-        maxWidth="container.xl"
+        maxWidth="container.lg"
         mx="auto"
         p="2"
       >
@@ -20,9 +20,10 @@ export const Header = () => {
             <Avatar as="a" src="/profileIcon.jpeg" />
           </Link>
         </Box>
+
         <Box as="nav">
           <List display="flex" flexDirection="row">
-            <ListItem>
+            <ListItem mr="4">
               <Link href="/" passHref>
                 <Text
                   as="a"
@@ -33,7 +34,7 @@ export const Header = () => {
                 </Text>
               </Link>
             </ListItem>
-            <ListItem ml="6">
+            <ListItem>
               <Link href="/about" passHref>
                 <Text
                   as="a"
@@ -46,7 +47,8 @@ export const Header = () => {
             </ListItem>
           </List>
         </Box>
-        <Box>
+
+        <Box width="48px">
           <DarkModeSwitch />
         </Box>
       </Flex>

@@ -1,4 +1,4 @@
-import { useColorMode, Box } from '@chakra-ui/react';
+import { useColorMode, Box, Container } from '@chakra-ui/react';
 import { Header } from './Header';
 
 export const Layout: React.FC = ({ children }) => {
@@ -10,7 +10,9 @@ export const Layout: React.FC = ({ children }) => {
   return (
     <Box height="100vh" bg={bgColor[colorMode]} color={color[colorMode]}>
       <Header />
-      {children}
+      <Container as="main" maxWidth="container.md">
+        {children}
+      </Container>
     </Box>
   );
 };
