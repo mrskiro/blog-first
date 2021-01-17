@@ -15,13 +15,13 @@ export const Header = () => {
         mx="auto"
         p="2"
       >
-        <Box>
+        <Box flex="1">
           <Link href="/" passHref>
-            <Avatar as="a" src="/profileIcon.jpeg" />
+            <Avatar as="h1" src="/profileIcon.jpeg" />
           </Link>
         </Box>
 
-        <Box as="nav">
+        <Box display="flex" justifyContent="center">
           <List display="flex" flexDirection="row">
             <ListItem mr="4">
               <Link href="/" passHref>
@@ -48,7 +48,7 @@ export const Header = () => {
           </List>
         </Box>
 
-        <Box width="48px">
+        <Box flex="1" textAlign="end">
           <DarkModeSwitch />
         </Box>
       </Flex>
