@@ -9,7 +9,6 @@
     "format": "prettier --write ."
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.0.0",
     "@chakra-ui/react": "^1.0.0",
     "@chakra-ui/theme-tools": "1.0.0",
     "@emotion/react": "11.1.1",
