@@ -8,7 +8,7 @@ export const Layout: React.FC = ({ children }) => {
   const color = { light: 'black', dark: 'white' };
 
   return (
-    <Box height="100vh" bg={bgColor[colorMode]} color={color[colorMode]}>
+    <Box bg={bgColor[colorMode]} color={color[colorMode]}>
       <Header />
       <Container as="main" maxWidth="container.md">
         {children}

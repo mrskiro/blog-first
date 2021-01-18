@@ -1,29 +1,105 @@
-import { Avatar, Box, Text, Divider } from '@chakra-ui/react';
+import { Avatar, Box, Heading, Text, Divider, List, ListItem } from '@chakra-ui/react';
 import { Layout } from '../components/Layout';
 import { SocialIcons } from '../components/SocialIcons';
-const About = () => {
-  return (
-    <Layout>
-      <Box py="12">
-        <Box textAlign="center">
-          <Avatar src="/hoge.jpeg" size="2xl" />
-          <Text as="h1" mt="6" fontSize="2xl" fontWeight="bold">
-            Haruki Murasaki
-          </Text>
-          <SocialIcons />
-        </Box>
+import { histories } from '../constants/history';
 
-        <Divider borderColor="purple.300" my="4" />
-
-        <Box textAlign="center">
-          <Text as="h2">Profile</Text>
-        </Box>
-
-        <div>skills</div>
-        <div>history</div>
+const About = () => (
+  <Layout>
+    <Box py="16">
+      <Box textAlign="center">
+        <Avatar src="/profileImage.jpeg" size="2xl" mb="2" />
+        <Text as="h1" fontSize="xl" fontWeight="bold">
+          Haruki Murasaki
+        </Text>
+        <SocialIcons />
       </Box>
-    </Layout>
-  );
-};
+
+      <Divider borderColor="purple.300" my="10" />
+
+      <Box mb="32">
+        <Heading textAlign="center" fontWeight="bold" fontSize="normal">
+          Profile
+        </Heading>
+        <Divider borderColor="purple.300" my="4" maxWidth="4" mx="auto" />
+        <Box display="flex" justifyContent="center" lineHeight="8">
+          <List>
+            <ListItem>生年月日: 1998/11/02</ListItem>
+            <ListItem>出身: 東京都杉並区</ListItem>
+            <ListItem>趣味: 服/弾き語り/インディーズバンド/プログラミング</ListItem>
+            <ListItem>特技: 音響(PAができます)</ListItem>
+          </List>
+        </Box>
+      </Box>
+
+      <Box mb="32">
+        <Heading textAlign="center" fontWeight="bold" fontSize="normal">
+          Skills
+        </Heading>
+        <Divider borderColor="purple.300" my="4" maxWidth="4" mx="auto" />
+        <Box display="flex" justifyContent="center" lineHeight="8">
+          <List>
+            <ListItem>Lv3: JavaScript/React/HTML/CSS</ListItem>
+            <ListItem>Lv2: TypeScript/ReactNative/Next</ListItem>
+            <ListItem mb="2">Lv1: GraphQL/ApolloClient/SQL/Gatsby/Vue</ListItem>
+            <ListItem>Other: Storybook/AtomicDesign/ExpoGitHub/Firebase</ListItem>
+          </List>
+        </Box>
+      </Box>
+
+      <Box mb="32">
+        <Heading textAlign="center" fontWeight="bold" fontSize="normal">
+          History
+        </Heading>
+        <Divider borderColor="purple.300" my="4" maxWidth="4" mx="auto" />
+        <Box display="flex" justifyContent="center" lineHeight="8">
+          <List
+            position="relative"
+            _before={{
+              content: "''",
+              position: 'absolute',
+              top: 0,
+              bottom: 0,
+              width: '4px',
+              backgroundColor: 'purple.300',
+              borderRadius: 'full',
+            }}
+          >
+            {histories.map((history, index) => (
+              <ListItem
+                key={index}
+                position="relative"
+                mb="4"
+                _before={{
+                  content: "''",
+                  position: 'absolute',
+                  top: '2',
+                  left: '-6px',
+                  bottom: 0,
+                  width: '15px',
+                  height: '15px',
+                  borderRadius: '50%',
+                  backgroundColor: 'purple.600',
+                }}
+              >
+                <Box ml="6">
+                  <Text color="gray.600" fontSize="sm">
+                    {history.date}
+                  </Text>
+
+                  <Text fontWeight="semibold" mb="2">
+                    {history.title}
+                  </Text>
+                  <Text pl="1" fontSize="sm" lineHeight="normal" whiteSpace="pre-line">
+                    {history.description}
+                  </Text>
+                </Box>
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      </Box>
+    </Box>
+  </Layout>
+);
 
 export default About;
