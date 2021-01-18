@@ -52,8 +52,8 @@ export const SocialIcons = () => {
               <IconButton
                 aria-label={icon.label}
                 isRound
-                size="xs"
-                icon={<Icon as={icon.icon} w="4" h="4" color={icon.color} />}
+                size="sm"
+                icon={<Icon as={icon.icon} w="6" h="6" color={icon.color} />}
               />
             </Link>
           </Tooltip>

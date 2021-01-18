@@ -1,4 +1,5 @@
 import { Avatar, Box, Heading, Text, Divider, List, ListItem } from '@chakra-ui/react';
+import Link from 'next/link';
 import { Layout } from '../components/Layout';
 import { SocialIcons } from '../components/SocialIcons';
 import { histories } from '../constants/history';
@@ -107,7 +108,7 @@ const About = () => (
                   <Text fontWeight="semibold" mb="2">
                     {history.title}
                   </Text>
-                  <Text pl="1" fontSize="sm" lineHeight="normal" whiteSpace="pre-line">
+                  <Text pl="1" fontSize="sm" lineHeight="6" whiteSpace="pre-line">
                     {history.description}
                   </Text>
                 </Box>
@@ -115,6 +116,12 @@ const About = () => (
             ))}
           </List>
         </Box>
+      </Box>
+
+      <Box>
+        <Link href="/">
+          <Text _hover={{ textDecoration: 'underline', cursor: 'pointer' }}>← Blogへ</Text>
+        </Link>
       </Box>
     </Box>
   </Layout>

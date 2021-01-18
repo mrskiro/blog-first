@@ -9,7 +9,7 @@ export const histories = [
     title: 'RELATIONS株式会社',
     description: `内定者インターンとしてオンボーディングをした後に、フロントエンドを中心にHR系SaaSの開発業務に従事しました。初めての実務経験です。自分でタスクをとり調査・再現→修正→PRの流れを行えるようになったことや、コードレビューに参加してチーム開発で必要な意識などを学ばさせていただきました。
     開発人数: 6人
-    開発言語・技術: React/GraphQL/ApolloClient/Formik/AtomicDesign/スクラム
+    技術スタック: React/GraphQL/ApolloClient/スクラム
     `,
   },
   {
