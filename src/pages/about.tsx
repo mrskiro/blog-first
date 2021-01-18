@@ -1,8 +1,21 @@
-import { Avatar, Box, Heading, Text, Divider, List, ListItem } from '@chakra-ui/react';
+import {
+  Avatar,
+  Box,
+  Heading,
+  Text,
+  Divider,
+  List,
+  ListItem,
+  Wrap,
+  WrapItem,
+  Tag,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 import { Layout } from '../components/Layout';
 import { SocialIcons } from '../components/SocialIcons';
-import { histories } from '../constants/history';
+import { profiles } from '../constants/profiles';
+import { skills } from '../constants/skills';
+import { histories } from '../constants/histories';
 
 const About = () => (
   <Layout>
@@ -22,20 +35,14 @@ const About = () => (
           Profile
         </Heading>
         <Divider borderColor="purple.300" my="4" maxWidth="4" mx="auto" />
-        <Box display="flex" justifyContent="center" lineHeight="8">
+        <Box display="flex" flexDirection="column" alignItems="center" lineHeight="8">
           <List>
-            <ListItem>
-              <Text>生年月日: 1998/11/02</Text>
-            </ListItem>
-            <ListItem>
-              <Text>出身: 東京都杉並区</Text>
-            </ListItem>
-            <ListItem>
-              <Text>趣味: 服/弾き語り/インディーズバンド/プログラミング</Text>
-            </ListItem>
-            <ListItem>
-              <Text>特技: 音響(PAができます)</Text>
-            </ListItem>
+            {profiles.map((profile, index) => (
+              <ListItem key={index} display="flex">
+                <Text flexShrink={0}>{profile.title}: </Text>
+                <Text wordBreak="break-all">{profile.text}</Text>
+              </ListItem>
+            ))}
           </List>
         </Box>
       </Box>
@@ -45,22 +52,26 @@ const About = () => (
           Skills
         </Heading>
         <Divider borderColor="purple.300" my="4" maxWidth="4" mx="auto" />
-        <Box display="flex" justifyContent="center" lineHeight="8">
+        <Box display="flex" flexDirection="column" alignItems="center" lineHeight="8">
           <List>
-            <ListItem>
-              <Text>Lv3: JavaScript/React/HTML/CSS</Text>
-            </ListItem>
-            <ListItem>
-              <Text>Lv2: TypeScript/ReactNative/Next</Text>
-            </ListItem>
-            <ListItem mb="2">
-              <Text>Lv1: GraphQL/ApolloClient/SQL/Gatsby/Vue</Text>
-            </ListItem>
-            <ListItem>
-              <Text fontSize={{ base: 'xs', md: 'md' }}>
-                Other: Storybook/AtomicDesign/Expo/GitHub/Firebase
-              </Text>
-            </ListItem>
+            {skills.map((skill, index) => (
+              <ListItem key={index} mb="4">
+                <Text>{skill.title}</Text>
+                <Wrap>
+                  {skill.items.map((item, index) => (
+                    <WrapItem key={index}>
+                      <Tag>{item}</Tag>
+                    </WrapItem>
+                  ))}
+                </Wrap>
+              </ListItem>
+            ))}
+
+            {/* {skills.map((skill, index) => (
+              <ListItem key={index}>
+                <Text wordBreak="break-all">{skill.title}</Text>
+              </ListItem>
+            ))} */}
           </List>
         </Box>
       </Box>
