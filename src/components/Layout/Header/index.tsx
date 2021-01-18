@@ -17,7 +17,7 @@ export const Header = () => {
       >
         <Box flex="1">
           <Link href="/" passHref>
-            <Avatar as="h1" src="/profileIcon.jpeg" />
+            <Avatar as="h1" src="/profileIcon.jpeg" cursor="pointer" />
           </Link>
         </Box>
 
