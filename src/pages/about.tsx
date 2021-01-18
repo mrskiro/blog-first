@@ -23,10 +23,18 @@ const About = () => (
         <Divider borderColor="purple.300" my="4" maxWidth="4" mx="auto" />
         <Box display="flex" justifyContent="center" lineHeight="8">
           <List>
-            <ListItem>生年月日: 1998/11/02</ListItem>
-            <ListItem>出身: 東京都杉並区</ListItem>
-            <ListItem>趣味: 服/弾き語り/インディーズバンド/プログラミング</ListItem>
-            <ListItem>特技: 音響(PAができます)</ListItem>
+            <ListItem>
+              <Text>生年月日: 1998/11/02</Text>
+            </ListItem>
+            <ListItem>
+              <Text>出身: 東京都杉並区</Text>
+            </ListItem>
+            <ListItem>
+              <Text>趣味: 服/弾き語り/インディーズバンド/プログラミング</Text>
+            </ListItem>
+            <ListItem>
+              <Text>特技: 音響(PAができます)</Text>
+            </ListItem>
           </List>
         </Box>
       </Box>
@@ -38,10 +46,20 @@ const About = () => (
         <Divider borderColor="purple.300" my="4" maxWidth="4" mx="auto" />
         <Box display="flex" justifyContent="center" lineHeight="8">
           <List>
-            <ListItem>Lv3: JavaScript/React/HTML/CSS</ListItem>
-            <ListItem>Lv2: TypeScript/ReactNative/Next</ListItem>
-            <ListItem mb="2">Lv1: GraphQL/ApolloClient/SQL/Gatsby/Vue</ListItem>
-            <ListItem>Other: Storybook/AtomicDesign/ExpoGitHub/Firebase</ListItem>
+            <ListItem>
+              <Text>Lv3: JavaScript/React/HTML/CSS</Text>
+            </ListItem>
+            <ListItem>
+              <Text>Lv2: TypeScript/ReactNative/Next</Text>
+            </ListItem>
+            <ListItem mb="2">
+              <Text>Lv1: GraphQL/ApolloClient/SQL/Gatsby/Vue</Text>
+            </ListItem>
+            <ListItem>
+              <Text fontSize={{ base: 'xs', md: 'md' }}>
+                Other: Storybook/AtomicDesign/Expo/GitHub/Firebase
+              </Text>
+            </ListItem>
           </List>
         </Box>
       </Box>
