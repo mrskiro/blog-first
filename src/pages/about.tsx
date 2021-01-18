@@ -60,7 +60,7 @@ const About = () => (
                 <Wrap>
                   {skill.items.map((item, index) => (
                     <WrapItem key={index}>
-                      <Tag>{item}</Tag>
+                      <Tag colorScheme="purple">{item}</Tag>
                     </WrapItem>
                   ))}
                 </Wrap>
