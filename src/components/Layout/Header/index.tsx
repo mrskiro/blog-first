@@ -7,7 +7,7 @@ export const Header = () => {
   const { pathname } = useRouter();
 
   return (
-    <Box as="header" width="100%" alignItems="center" borderBottom="1px" borderColor="gray.200">
+    <Box as="header" width="100%" alignItems="center" boxShadow="base">
       <Flex
         justifyContent="space-between"
         alignItems="center"
@@ -17,7 +17,7 @@ export const Header = () => {
       >
         <Box flex="1">
           <Link href="/" passHref>
-            <Avatar as="h1" src="/profileIcon.jpeg" cursor="pointer" />
+            <Avatar as="h1" src="/profileIcon.jpeg" cursor="pointer" showBorder />
           </Link>
         </Box>
 
