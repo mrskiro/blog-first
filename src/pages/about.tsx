@@ -39,7 +39,9 @@ const About = () => (
           <List>
             {profiles.map((profile, index) => (
               <ListItem key={index} display="flex">
-                <Text flexShrink={0}>{profile.title}: </Text>
+                <Text flexShrink={0} mr="2">
+                  {profile.title}:
+                </Text>
                 <Text wordBreak="break-all">{profile.text}</Text>
               </ListItem>
             ))}
