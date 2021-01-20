@@ -1,5 +1,6 @@
 import { useColorMode, Box, Container } from '@chakra-ui/react';
 import { Header } from './Header';
+import { Footer } from './Footer';
 
 export const Layout: React.FC = ({ children }) => {
   const { colorMode } = useColorMode();
@@ -8,11 +9,12 @@ export const Layout: React.FC = ({ children }) => {
   const color = { light: 'black', dark: 'whiteAlpha.900' };
 
   return (
-    <Box minHeight="100vh" bg={bgColor[colorMode]} color={color[colorMode]}>
+    <Box bg={bgColor[colorMode]} color={color[colorMode]}>
       <Header />
-      <Container as="main" maxWidth="container.md">
+      <Container as="main" maxWidth="container.md" minHeight="100vh">
         {children}
       </Container>
+      <Footer />
     </Box>
   );
 };
