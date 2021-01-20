@@ -1,7 +1,7 @@
 import { Box, Flex, List, ListItem, Text, Avatar } from '@chakra-ui/react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { DarkModeSwitch } from '../../DarkModeSwitch';
+import { DarkModeSwitch } from '../DarkModeSwitch';
 
 export const Header = () => {
   const { pathname } = useRouter();
