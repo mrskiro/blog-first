@@ -1,12 +1,5 @@
 import { Wrap, WrapItem, Tooltip, IconButton, Icon, Link } from '@chakra-ui/react';
-import {
-  GitHubIcon,
-  InstagramIcon,
-  QiitaIcon,
-  TwitterIcon,
-  WantedlyIcon,
-  ZennIcon,
-} from '../Icons';
+import { GitHubIcon, InstagramIcon, QiitaIcon, TwitterIcon, WantedlyIcon, ZennIcon } from './Icons';
 
 export const SocialIcons = () => {
   const icons = [
