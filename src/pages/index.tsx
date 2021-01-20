@@ -21,7 +21,7 @@ export const getStaticProps = async () => {
   const parser = new Parser();
   const feed = await parser.parseURL('https://qiita.com/purpleeeee/feed.atom');
 
-  return { props: { feed } };
+  return { props: { feed }, revalidate: 1 };
 };
 
 const Index = ({ feed }: InferGetStaticPropsType<typeof getStaticProps>) => {
