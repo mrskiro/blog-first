@@ -4,6 +4,7 @@ import {
   Box,
   Flex,
   Wrap,
+  WrapItem,
   SimpleGrid,
   Heading,
   Link,
@@ -44,10 +45,14 @@ const Index = ({ feed }: InferGetStaticPropsType<typeof getStaticProps>) => {
               </Text>
               <Link mb="4" href={item.link} isExternal>
                 <Wrap align="center" spacing="1">
-                  <Heading fontSize="xl" _hover={{ textDecoration: 'underline' }}>
-                    {item.title}
-                  </Heading>
-                  <ExternalLinkIcon w="4" h="4" />
+                  <WrapItem>
+                    <Heading fontSize="xl" _hover={{ textDecoration: 'underline' }}>
+                      {item.title}
+                    </Heading>
+                  </WrapItem>
+                  <WrapItem>
+                    <ExternalLinkIcon w="4" h="4" />
+                  </WrapItem>
                 </Wrap>
               </Link>
               <Flex alignItems="center">
