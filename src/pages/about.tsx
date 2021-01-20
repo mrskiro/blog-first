@@ -68,12 +68,6 @@ const About = () => (
                 </Wrap>
               </ListItem>
             ))}
-
-            {/* {skills.map((skill, index) => (
-              <ListItem key={index}>
-                <Text wordBreak="break-all">{skill.title}</Text>
-              </ListItem>
-            ))} */}
           </List>
         </Box>
       </Box>
