@@ -6,6 +6,8 @@ import { DarkModeSwitch } from '../DarkModeSwitch';
 export const Header = () => {
   const { pathname } = useRouter();
 
+  const isRootOrPosts = pathname === '/' || pathname.includes('/posts');
+
   return (
     <Box as="header" width="100%" alignItems="center" boxShadow="base">
       <Flex
@@ -27,10 +29,10 @@ export const Header = () => {
               <Link href="/" passHref>
                 <Text
                   as="a"
-                  fontWeight={pathname === '/' ? 'semibold' : undefined}
+                  fontWeight={isRootOrPosts ? 'semibold' : undefined}
                   _hover={{ textDecoration: 'underline' }}
                 >
-                  Blog
+                  Posts
                 </Text>
               </Link>
             </ListItem>

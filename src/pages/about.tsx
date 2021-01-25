@@ -10,12 +10,12 @@ import {
   WrapItem,
   Tag,
 } from '@chakra-ui/react';
-import Link from 'next/link';
 import { Layout } from '../components/Layout';
 import { SocialIcons } from '../components/SocialIcons';
 import { profiles } from '../constants/profiles';
 import { skills } from '../constants/skills';
 import { histories } from '../constants/histories';
+import { BackToHome } from '../components/BackToHome';
 
 const About = () => (
   <Layout>
@@ -125,11 +125,7 @@ const About = () => (
         </Box>
       </Box>
 
-      <Box>
-        <Link href="/">
-          <Text _hover={{ textDecoration: 'underline', cursor: 'pointer' }}>← Blogへ</Text>
-        </Link>
-      </Box>
+      <BackToHome />
     </Box>
   </Layout>
 );
