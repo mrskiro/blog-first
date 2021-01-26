@@ -24,7 +24,7 @@ export const getStaticProps: GetStaticProps<PostDetailProps> = async ({ params }
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await getPostsFromCMS();
-  const paths = data.map((item) => `/posts/${item.id}`);
+  const paths = data?.map((item) => `/posts/${item.id}`);
 
   return {
     paths,
