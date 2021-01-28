@@ -36,7 +36,11 @@ export const PostItem = ({ post }: PostItemProps) => {
           <ChakraLick href={post.link} isExternal>
             <Wrap align="center" spacing="1" mb="4">
               <WrapItem>
-                <Heading fontSize={['md', null, 'lg']} _hover={{ textDecoration: 'underline' }}>
+                <Heading
+                  as="a"
+                  fontSize={['md', null, 'lg']}
+                  _hover={{ textDecoration: 'underline' }}
+                >
                   {post.title}
                 </Heading>
               </WrapItem>
@@ -57,7 +61,7 @@ export const PostItem = ({ post }: PostItemProps) => {
               as="a"
               mb="4"
               fontSize={['md', null, 'lg']}
-              _hover={{ textDecoration: 'underline', cursor: 'pointer' }}
+              _hover={{ textDecoration: 'underline' }}
             >
               {post.title}
             </Heading>
