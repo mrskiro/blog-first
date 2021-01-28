@@ -21,6 +21,7 @@ export type CMSData = {
   id: string;
   date: string;
   title: string;
+  description: string;
   content: string;
   mediaType: string[];
 };
@@ -29,7 +30,8 @@ export type Post = {
   id: string;
   type: 'Feed' | 'CMS';
   title: string;
-  content?: string;
+  description?: string;
+  content: string;
   createdAt: string;
   link?: string;
 };

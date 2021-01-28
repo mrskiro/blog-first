@@ -44,6 +44,7 @@ export const getDataFromFeedAndCMS = async () => {
       id: item.id,
       type: 'CMS',
       title: item.title,
+      description: item.description,
       content: item.content,
       createdAt: item.date,
     };

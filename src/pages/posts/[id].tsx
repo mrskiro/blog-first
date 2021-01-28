@@ -6,6 +6,7 @@ import { CMSData } from '../../types';
 import { MarkdownTemplate } from '../../components/MarkdownTemplate';
 import { BackToHome } from '../../components/BackToHome';
 import { yyyyMMMMdd } from '../../utils/date-fns';
+import { SEO } from '../../components/SEO';
 
 type PostDetailProps = {
   post: CMSData;
@@ -33,19 +34,22 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 const PostDetail = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => (
-  <Layout>
-    <Box py="16">
-      <Text as="h1" mb="4" fontSize="4xl" textAlign="center">
-        {post.title}
-      </Text>
-      <Text textAlign="center" fontSize="lg">
-        {yyyyMMMMdd(post.date)}
-      </Text>
-      <Divider my="8" />
-      <MarkdownTemplate source={post.content} mb="16" />
-      <BackToHome />
-    </Box>
-  </Layout>
+  <>
+    <SEO title={post.title} description={post.description} />
+    <Layout>
+      <Box py="16">
+        <Text as="h1" mb="4" fontSize="4xl" textAlign="center">
+          {post.title}
+        </Text>
+        <Text textAlign="center" fontSize="lg">
+          {yyyyMMMMdd(post.date)}
+        </Text>
+        <Divider my="8" />
+        <MarkdownTemplate source={post.content} mb="16" />
+        <BackToHome />
+      </Box>
+    </Layout>
+  </>
 );
 
 export default PostDetail;
