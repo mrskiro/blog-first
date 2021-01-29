@@ -145,7 +145,7 @@ const options: HTMLReactParserOptions = {
 
 export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
   return (
-    <div>{parse(props.source, options)}</div>
+    <Box>{parse(props.source, options)}</Box>
     // <ChakraMarkdown
     //   lineHeight="tall"
     //   options={{

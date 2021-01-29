@@ -37,7 +37,7 @@ const PostDetail = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) =>
   <>
     <SEO title={post.title} description={post.description} />
     <Layout>
-      <Box py="16">
+      <Box py="16" as="article">
         <Text as="h1" mb="4" fontSize="4xl" textAlign="center">
           {post.title}
         </Text>
