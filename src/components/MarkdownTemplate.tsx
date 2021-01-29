@@ -1,7 +1,9 @@
-import { BoxProps, Box, Text, UnorderedList, ListItem, Link } from '@chakra-ui/react';
+import { BoxProps, Box, Text, UnorderedList, ListItem, Link, Code } from '@chakra-ui/react';
 // import Markdown from 'markdown-to-jsx';
 // import { htmlToMarkdown } from '../utils/posts';
 import parse, { domToReact, HTMLReactParserOptions } from 'html-react-parser';
+import highlight from 'highlight.js';
+import 'highlight.js/styles/night-owl.css';
 
 type MarkdownTemplateProps = {
   source: string;
@@ -116,6 +118,14 @@ const options: HTMLReactParserOptions = {
         return (
           <Box as="blockquote" {...blockquote.props}>
             {domToReact(domNode.children, options)}
+          </Box>
+        );
+      }
+      if (domNode.name === 'code') {
+        const code = highlight.highlightAuto(domToReact(domNode.children, options) as string).value;
+        return (
+          <Box as="code" className="hljs">
+            {parse(code)}
           </Box>
         );
       }
