@@ -7,6 +7,8 @@ type SEOProps = {
 };
 
 export const SEO = ({ title, description, keywords }: SEOProps) => {
+  const fullPath =
+    process.env.NODE_ENV === 'production' ? 'https://purpleeeee.com' : 'http://localhost:3000';
   return (
     <Head>
       <title>{title && `${title} - `}purpleeeee.com</title>
@@ -18,7 +20,7 @@ export const SEO = ({ title, description, keywords }: SEOProps) => {
       <meta name="twitter:creator" content="@purp1eeeee" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:image" content="/profileIcon.jpeg" />
+      <meta property="og:image" content={`${fullPath}/profileIcon.jpeg`} />
       <meta property="og:site_name" content="purpleeeee" />
     </Head>
   );
