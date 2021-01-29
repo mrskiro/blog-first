@@ -1,4 +1,5 @@
 import Parser from 'rss-parser';
+import { compareDesc } from 'date-fns';
 import { CMSData, Feed, Post } from '../types';
 
 const getFeed = async () => {
@@ -34,8 +35,7 @@ export const getDataFromFeedAndCMS = async () => {
       id: item.id,
       type: 'Feed',
       title: item.title,
-      content: item.content,
-      createdAt: item.isoDate,
+      createdAt: new Date(item.isoDate),
       link: item.link,
     };
   });
@@ -45,12 +45,12 @@ export const getDataFromFeedAndCMS = async () => {
       type: 'CMS',
       title: item.title,
       description: item.description,
-      content: item.content,
-      createdAt: item.date,
+      createdAt: new Date(item.date),
     };
   });
 
   const result = [...feed, ...cmsData];
+  result.sort((a, b) => compareDesc(a.createdAt, b.createdAt));
 
   return JSON.parse(JSON.stringify(result));
 };

@@ -31,7 +31,7 @@ export type Post = {
   type: 'Feed' | 'CMS';
   title: string;
   description?: string;
-  content: string;
-  createdAt: string;
+  content?: string;
+  createdAt: Date | number;
   link?: string;
 };

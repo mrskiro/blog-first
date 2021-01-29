@@ -1,4 +1,4 @@
-import { BoxProps, Box, Text, UnorderedList, ListItem, Link, Code } from '@chakra-ui/react';
+import { BoxProps, Box, Text, UnorderedList, ListItem, Link } from '@chakra-ui/react';
 // import Markdown from 'markdown-to-jsx';
 // import { htmlToMarkdown } from '../utils/posts';
 import parse, { domToReact, HTMLReactParserOptions } from 'html-react-parser';
