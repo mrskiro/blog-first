@@ -16,6 +16,7 @@
     "@emotion/styled": "11.0.0",
     "date-fns": "^2.16.1",
     "framer-motion": ">=3.0.0",
+    "html-react-parser": "^1.2.3",
     "next": "latest",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
