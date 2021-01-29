@@ -84,6 +84,8 @@ const a = {
   },
 };
 
+const languageSubset = ['js', 'html', 'css', 'xml', 'typescript'];
+
 const options: HTMLReactParserOptions = {
   replace: (domNode: any) => {
     if (domNode.type === 'tag') {
@@ -122,9 +124,10 @@ const options: HTMLReactParserOptions = {
         );
       }
       if (domNode.name === 'code') {
-        const code = highlight.highlightAuto(domToReact(domNode.children, options) as string).value;
+        const code = highlight.highlightAuto(domToReact(domNode.children) as string, languageSubset)
+          .value;
         return (
-          <Box as="code" className="hljs">
+          <Box as="code" className="hljs" fontSize="sm" p="4">
             {parse(code)}
           </Box>
         );
