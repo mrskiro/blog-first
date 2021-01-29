@@ -33,22 +33,22 @@ export const PostItem = ({ post }: PostItemProps) => {
       </Text>
       {post.type === 'Feed' ? (
         <>
-          <ChakraLick href={post.link} isExternal>
-            <Wrap align="center" spacing="1" mb="4">
-              <WrapItem>
-                <Heading
-                  as="a"
-                  fontSize={['md', null, 'lg']}
-                  _hover={{ textDecoration: 'underline' }}
-                >
-                  {post.title}
-                </Heading>
-              </WrapItem>
-              <WrapItem>
-                <ExternalLinkIcon w="4" h="4" />
-              </WrapItem>
-            </Wrap>
-          </ChakraLick>
+          <Wrap align="center" spacing="1" mb="4">
+            <WrapItem>
+              <Heading
+                as={ChakraLick}
+                href={post.link}
+                isExternal
+                fontSize={['md', null, 'lg']}
+                _hover={{ textDecoration: 'underline' }}
+              >
+                {post.title}
+              </Heading>
+            </WrapItem>
+            <WrapItem>
+              <ExternalLinkIcon w="4" h="4" />
+            </WrapItem>
+          </Wrap>
           <Flex alignItems="center">
             <Image src={getFavicon(post.link!)} w="5" h="5" mr="1" />
             <Text fontSize="sm">{getHostName(post.link!)}</Text>
