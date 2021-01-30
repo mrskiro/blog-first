@@ -1,7 +1,7 @@
 import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next';
 import { Box, Text, Divider } from '@chakra-ui/react';
 import { Layout } from '../../components/Layout';
-import { getPostsFromCMS, getPostsFromCMSById } from '../../utils/posts';
+import { getPostsFromCMS, getPostFromCMSById } from '../../utils/posts';
 import { CMSData } from '../../types';
 import { MarkdownTemplate } from '../../components/MarkdownTemplate';
 import { BackToHome } from '../../components/BackToHome';
@@ -15,7 +15,7 @@ type PostDetailProps = {
 
 export const getStaticProps: GetStaticProps<PostDetailProps> = async ({ params, previewData }) => {
   const id = params?.id as string;
-  const post: CMSData = await getPostsFromCMSById(id, previewData?.draftKey);
+  const post: CMSData = await getPostFromCMSById(id, previewData?.draftKey);
 
   return {
     props: {

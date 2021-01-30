@@ -1,23 +1,36 @@
-import { InferGetStaticPropsType } from 'next';
+import { GetStaticProps, NextPage } from 'next';
 import { Box, SimpleGrid } from '@chakra-ui/react';
 import { SEO } from '../components/SEO';
 import { Layout } from '../components/Layout';
-import { getDataFromFeedAndCMS } from '../utils/posts';
+import { getDataFromFeedAndCMS, getPostFromCMSById } from '../utils/posts';
 import { Post } from '../types';
 import { PostItem } from '../components/PostItem';
 
-export const getStaticProps = async () => {
-  const data: Post[] = await getDataFromFeedAndCMS();
-  return { props: { data }, revalidate: 1 };
+type Props = {
+  posts: Post[];
 };
 
-const Index = ({ data }: InferGetStaticPropsType<typeof getStaticProps>) => (
+export const getStaticProps: GetStaticProps = async ({ preview, previewData }) => {
+  const posts: Post[] = await getDataFromFeedAndCMS();
+  if (preview) {
+    const draftData = await getPostFromCMSById(previewData.id, previewData.draftKey);
+    posts.unshift({
+      id: draftData.id,
+      type: 'CMS',
+      title: draftData.title,
+      createdAt: new Date(draftData.date),
+    });
+  }
+  return { props: { posts }, revalidate: 1 };
+};
+
+const Index: NextPage<Props> = ({ posts }) => (
   <>
     <SEO title="" description="purpleeeee's portfolio" />
     <Layout>
       <Box py="16" px="2">
         <SimpleGrid columns={[1, null, 2]} spacing={[4, null, 8]}>
-          {data.map((item, index) => (
+          {posts.map((item, index) => (
             <PostItem key={index} post={item} />
           ))}
         </SimpleGrid>
