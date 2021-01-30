@@ -17,9 +17,10 @@ export const getPostsFromCMS = async () => {
   return data.contents as CMSData[];
 };
 
-export const getPostsFromCMSById = async (id: string) => {
-  const key = { headers: { 'X-API-KEY': process.env.API_KEY! } };
-  const data = await fetch(`https://purpleeeee.microcms.io/api/v1/blogs/${id}`, key)
+export const getPostsFromCMSById = async (id: string, draftKey?: string) => {
+  const previewKey = draftKey ? `?draftKey=${draftKey}` : '';
+  const key = { headers: { 'X-API-KEY': process.env.API_KEY || '' } };
+  const data = await fetch(`https://purpleeeee.microcms.io/api/v1/blogs/${id}${previewKey}`, key)
     .then((res) => res.json())
     .catch(() => null);
 
