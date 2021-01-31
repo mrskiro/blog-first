@@ -1,9 +1,25 @@
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document';
+import NextDocument, { DocumentContext, Html, Head, Main, NextScript } from 'next/document';
 import { ColorModeScript } from '@chakra-ui/react';
+import nookies from 'nookies';
 import { GA_TRACKING_ID } from '../utils/gtag';
 
-export default class Document extends NextDocument {
+type WithNonceProp = {
+  preview: boolean;
+};
+export default class Document extends NextDocument<WithNonceProp> {
+  static async getInitialProps(ctx: DocumentContext) {
+    const initialProps = await NextDocument.getInitialProps(ctx);
+    const cookies = nookies.get(ctx);
+    const preview = cookies.__next_preview_data || false;
+
+    return {
+      ...initialProps,
+      preview,
+    };
+  }
+
   render() {
+    const preview = this.props.preview;
     return (
       <Html>
         <Head>
@@ -32,6 +48,7 @@ export default class Document extends NextDocument {
                 gtag('config', '${GA_TRACKING_ID}', {
                   page_path: window.location.pathname,
                 });
+                ${preview ? "window['ga-disable-" + GA_TRACKING_ID + "'] = true;" : ''}
               `,
                 }}
               />
