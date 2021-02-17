@@ -53,6 +53,16 @@ const h3 = {
 const p = {
   component: Text,
   props: {
+    lineHeight: '180%',
+    mb: '6',
+  },
+};
+
+const code = {
+  component: Box,
+  props: {
+    fontSize: 'sm',
+    p: '4',
     mb: '6',
   },
 };
@@ -124,11 +134,13 @@ const options: HTMLReactParserOptions = {
         );
       }
       if (domNode.name === 'code') {
-        const code = highlight.highlightAuto(domToReact(domNode.children) as string, languageSubset)
-          .value;
+        const highlightCode = highlight.highlightAuto(
+          domToReact(domNode.children) as string,
+          languageSubset,
+        ).value;
         return (
-          <Box as="code" className="hljs" fontSize="sm" p="4">
-            {parse(code)}
+          <Box as="code" className="hljs" {...code.props}>
+            {parse(highlightCode)}
           </Box>
         );
       }
@@ -148,7 +160,7 @@ const options: HTMLReactParserOptions = {
 
 export const MarkdownTemplate = (props: MarkdownTemplateProps) => {
   return (
-    <Box>{parse(props.source, options)}</Box>
+    <Box {...props}>{parse(props.source, options)}</Box>
     // <ChakraMarkdown
     //   lineHeight="tall"
     //   options={{
