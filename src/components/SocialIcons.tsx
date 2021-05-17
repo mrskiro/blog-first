@@ -1,5 +1,6 @@
 import { Wrap, WrapItem, Tooltip, IconButton, Icon, Link } from '@chakra-ui/react';
-import { GitHubIcon, InstagramIcon, QiitaIcon, TwitterIcon, WantedlyIcon, ZennIcon } from './Icons';
+import { GitHubIcon, InstagramIcon, QiitaIcon, TwitterIcon, ZennIcon } from './Icons';
+import { links } from '../constants/socials';
 
 export const SocialIcons = () => {
   const icons = [
@@ -7,34 +8,34 @@ export const SocialIcons = () => {
       label: 'Twitter',
       icon: TwitterIcon,
       color: 'twitter.500',
-      link: 'https://twitter.com/purp1eeeee',
+      link: links.twitter,
     },
     {
       label: 'Instagram',
       icon: InstagramIcon,
-      link: 'https://www.instagram.com/_murasakigasuki/',
+      link: links.instagram,
     },
     {
       label: 'GitHub',
       icon: GitHubIcon,
-      link: 'https://github.com/Murasaki-1102',
+      link: links.github,
     },
     {
       label: 'Zenn',
       icon: ZennIcon,
       color: '#3EA8FF',
-      link: 'https://zenn.dev/murasaki',
+      link: links.zenn,
     },
     {
       label: 'Qiita',
       icon: QiitaIcon,
-      link: 'https://qiita.com/purple',
+      link: links.qiita,
     },
-    {
-      label: 'Wantedly',
-      icon: WantedlyIcon,
-      link: 'https://www.wantedly.com/id/haruki_murasaki1102',
-    },
+    // {
+    //   label: 'Wantedly',
+    //   icon: WantedlyIcon,
+    //   link: 'https://www.wantedly.com/id/haruki_murasaki1102',
+    // },
   ];
   return (
     <Wrap justify="center" spacing="1">
